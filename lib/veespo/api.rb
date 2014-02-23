@@ -1,4 +1,4 @@
-require 'net/http'
+require 'faraday'
 require 'json'
 
 module Veespo
