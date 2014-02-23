@@ -23,7 +23,7 @@ module Veespo
 
 
     def self.http_get(path,params)
-        JSON.parse(Faraday.get("#{API_ROOT}/#{path}",params))['data']
+        JSON.parse(Faraday.get("#{API_ROOT}/#{path}",params).body)['data']
     end
 
   end
