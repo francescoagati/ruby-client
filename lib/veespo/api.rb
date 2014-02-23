@@ -36,7 +36,7 @@ module Veespo
 
     def get(path,params={})
       params[:token] = @token
-      @connection.http_get path,params
+      @connection.get path,params
     end
   
   end
