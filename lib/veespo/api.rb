@@ -9,7 +9,7 @@ module Veespo
   class Api
     class << self
       def get_token(params={})
-        Api.http_get("/v1/auth/category/#{params[:category]}/user-token", api_key:params[:api_key],user:params[:user])['token']
+        Api.http_get(params[:api_path],"/v1/auth/category/#{params[:category]}/user-token", api_key:params[:api_key],user:params[:user])['token']
       end
 
       def http_get(api_path,path,params)
