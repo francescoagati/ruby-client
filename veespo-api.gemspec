@@ -2,6 +2,8 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+require 'veespo/api'
+
 Gem::Specification.new do |spec|
   spec.name          = "veespo-api"
   spec.version       = Veespo::Version
