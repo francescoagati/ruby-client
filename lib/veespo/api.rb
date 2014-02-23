@@ -36,7 +36,7 @@ module Veespo
 
     def get(path,params={})
       params[:token] = @token
-      @connection.get path,params
+      JSON.parse(@connection.get(path,params).body)['data']
     end
   
   end
