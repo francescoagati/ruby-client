@@ -17,14 +17,21 @@ module Veespo
       Api.http_get path,params
     end
 
+    
     def self.get_token(params={})
       Api.http_get("/v1/auth/category/#{params[:category]}/user-token", api_key:params[:api_key],user:params[:user])['token']
     end
 
 
     def self.http_get(path,params)
-        JSON.parse(Faraday.get("#{API_ROOT}/#{path}",params).body)['data']
+        @conn ||= Faraday.new(API_ROOT) do |c|
+          c.use Faraday::Response::RaiseError
+          c.use Faraday::Adapter::NetHttp
+        end
+        JSON.parse(@conn.get("/#{path}",params).body)['data']
     end
+
+
 
   end
 end
