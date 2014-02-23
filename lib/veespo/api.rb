@@ -23,15 +23,7 @@ module Veespo
 
 
     def self.http_get(path,params)
-        uri = URI("#{API_ROOT}/#{path}")
-        uri.query = URI.encode_www_form(params)
-        res = Net::HTTP.get_response(uri)
-        if res.is_a?(Net::HTTPSuccess)
-        json = JSON.parse(res.body)['data']
-        json
-      else
-        {error: 'Http error'}
-      end 
+        JSON.parse(Faraday.get("#{API_ROOT}/#{path}",params))['data']
     end
 
   end
