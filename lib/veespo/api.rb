@@ -4,7 +4,7 @@ require 'json'
 module Veespo
 
   Version  = 0.1 
-  API_ROOT = 'production.veespo.com'
+  API_ROOT = 'http://production.veespo.com/'
 
   class Api
   
@@ -28,7 +28,7 @@ module Veespo
           c.use Faraday::Response::RaiseError
           c.use Faraday::Adapter::NetHttp
         end
-        JSON.parse(@conn.get("/#{path}",params).body)['data']
+        JSON.parse(@conn.get(path,params).body)['data']
     end
 
 
