@@ -1,14 +1,29 @@
-= veespo-api
+#Veespo Api
 
-Description goes here.
+###Wrapper for Veespo Api
 
-== Contributing to veespo-api
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
+In your GemFile
+
+```
+gem 'veespo-api', git:'https://github.com/francescoagati/ruby-client.git'
+```
+
+
+and in your ruby file
+
+
+```
+
+api_key  = 'Replace with your api key'
+category = 'the category for generate the token'
+user     = 'ther user id'
+
+token = Veespo::Api.get_token api_key:api_key,category:category,user:user
+
+api = Veespo::Api.new token:token
+#call the api
+puts api.get("/v1/info/category/cities/tags",lang:'en')
+
+
+```
