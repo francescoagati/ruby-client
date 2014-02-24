@@ -4,7 +4,6 @@ require 'json'
 module Veespo
 
   Version  = 0.2
-  API_ROOT = 'http://production.veespo.com/'
 
   class Api
     class << self
