@@ -14,7 +14,7 @@ module Veespo
       def http_get(api_path,path,params)
         conn = connection(api_path) 
         response = JSON.parse(conn.get(path,params).body)
-        if response['error']
+        if response['error'] != nil
           raise response['error']['ruby_msg']
         end
         response['data']
@@ -40,7 +40,7 @@ module Veespo
     def get(path,params={})
       params[:token] = @token
       response = JSON.parse(@connection.get(path,params).body)
-      if response['error']
+      if response['error'] != nil
         raise response['error']['ruby_msg']
       end
       response['data']
