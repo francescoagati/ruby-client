@@ -1,1 +1,1 @@
-gem 'faraday'
+gem 'faraday',  '~> 0.9'
