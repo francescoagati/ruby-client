@@ -20,15 +20,15 @@ Gem::Specification.new do |spec|
     spec.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      spec.add_runtime_dependency(%q<faraday>, ["~> 0.8"])
-      spec.add_runtime_dependency(%q<faraday_middleware>, [">= 0.8"])
+      spec.add_runtime_dependency(%q<faraday>, ["~> 0.9"])
+      spec.add_runtime_dependency(%q<faraday_middleware>, [">= 0.9"])
     else
       spec.add_dependency(%q<faraday>, ["~> 0.8"])
-      spec.add_dependency(%q<faraday_middleware>, [">= 0.8"])
+      spec.add_dependency(%q<faraday_middleware>, [">= 0.9"])
     end
   else
     spec.add_dependency(%q<faraday>, ["~> 0.8"])
-    spec.add_dependency(%q<faraday_middleware>, [">= 0.8"])
+    spec.add_dependency(%q<faraday_middleware>, [">= 0.9"])
   end
 
 end
